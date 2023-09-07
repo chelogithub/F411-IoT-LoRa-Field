@@ -1,0 +1,16 @@
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:23:6:NOP	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:29:6:Cambiar_CWMODE	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:35:6:ServerTCP	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:41:6:ConectarWIFI	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:47:6:MUX	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:53:6:IPDef	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:59:6:DesconectarWIFI	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:65:6:ConectarTCP	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:71:6:CrearServidorTCP	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:77:6:EnviarDatosSRVR	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:83:6:DesconectarTCP	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:89:6:EnviarDatos	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:95:6:Inicializar	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:150:5:AT_ESP8266_ND	640	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:1053:7:AT_Enviar_String	56	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266/ESP8266_Chelo.c:1087:5:WiFi_Conn_ND	24	static

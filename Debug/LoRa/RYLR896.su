@@ -1,0 +1,7 @@
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:5:5:LoRa_Send	40	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:42:6:LoRa_set_sndTIMER	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:50:6:LoRa_reset_sndTIMER	16	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:57:6:Lora_snd_CMND	32	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:119:6:LoRa_decode	32	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:308:5:Lora_idSTR	72	static
+C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa/RYLR896.c:346:6:Lora_rx_del	16	static
