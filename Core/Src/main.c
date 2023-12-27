@@ -76,7 +76,7 @@ char ENDPOINT[]="/tepelco",
      PORT[]="8000";
 
 
-uint8_t ETH_DBG_EN=1;
+uint8_t ETH_DBG_EN=0;
 uint8_t WF_SND_FLAG=0;
 int wf_snd_flag_ticks=0;
 
@@ -451,7 +451,13 @@ int main(void)
 	  								ModBUS_F03_Read(&mb_eth,6),
 	  								ModBUS_F03_Read(&mb_eth,7),
 	  								ModBUS_F03_Read(&mb_eth,8),
-									ModBUS_F03_Read(&mb_eth,9),TEST_1,//ModBUS_F03_Read(&mb_eth,9),TEPELCO,
+									ModBUS_F03_Read(&mb_eth,9),
+									ModBUS_F03_Read(&mb_eth,10),
+									ModBUS_F03_Read(&mb_eth,11),
+									ModBUS_F03_Read(&mb_eth,12),
+									ModBUS_F03_Read(&mb_eth,13),
+									ModBUS_F03_Read(&mb_eth,14),
+									ModBUS_F03_Read(&mb_eth,15),TEST_1,//ModBUS_F03_Read(&mb_eth,9),TEPELCO,
 	  								post, body, 512))
 
 	  				{
@@ -543,7 +549,7 @@ int main(void)
 		  				//generate data to send
 		  				char data[6];
 		  				int n=0;
-		  					while(n<11)
+		  				while(n<16)//while(n<11)
 		  					{
 			  					data[0]='\0';
 			  					itoa(ModBUS_F03_Read(&mb_eth,n),data,10);
