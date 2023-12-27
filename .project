@@ -33,32 +33,32 @@
 		<link>
 			<name>ESP8266</name>
 			<type>2</type>
-			<location>C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ESP8266</location>
+			<location>C:/STM32-IDE/STM32-Library/ESP8266</location>
 		</link>
 		<link>
 			<name>HTTP</name>
 			<type>2</type>
-			<location>C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/HTTP</location>
+			<location>C:/STM32-IDE/STM32-Library/HTTP</location>
 		</link>
 		<link>
 			<name>LoRa</name>
 			<type>2</type>
-			<location>C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/LoRa</location>
+			<location>C:/STM32-IDE/STM32-Library/LoRa</location>
 		</link>
 		<link>
 			<name>ModBUS</name>
 			<type>2</type>
-			<location>C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/ModBUS</location>
+			<location>C:/STM32-IDE/STM32-Library/ModBUS</location>
 		</link>
 		<link>
 			<name>STM32_ETH_W5100</name>
 			<type>2</type>
-			<location>C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/STM32_ETH_W5100</location>
+			<location>C:/STM32-IDE/STM32-Library/STM32_ETH_W5100</location>
 		</link>
 		<link>
 			<name>STRING</name>
 			<type>2</type>
-			<location>C:/Users/mggarcia/OneDrive - Universidad Nacional de la Matanza/xx-DATA ELECTRONICA/STM32/LIBRERIAS C/STRING</location>
+			<location>C:/STM32-IDE/STM32-Library/STRING</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -65,6 +65,7 @@ void Error_Handler(void);
 #define SPI1_NSS_GPIO_Port GPIOA
 #define WiFi_EN_Pin GPIO_PIN_8
 #define WiFi_EN_GPIO_Port GPIOA
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
