@@ -282,7 +282,7 @@ int main(void)
 	  //----------------------- LoRa ------------------------//
 
 	  //----------------------- WIFI ------------------------//
- 	  	Inicializar(&wf); 									//Borra todos los registros de la estructura
+ 	  	/*240103 Inicializar(&wf); 									//Borra todos los registros de la estructura
 		strcpy(wf._WF_Net, WIFI_NET);						//Nombre de la red WIFI  a conectar Fibertel WiFi967 2.4GHz
 		strcpy(wf._WF_Pass, WIFI_PASS);						//Password de la red WIFI
 		strcpy(wf._TCP_Remote_Server_IP, TCP_SERVER);		//char _TCP_Remote_Server_IP[16];		//IP del Servidor TCP
@@ -310,7 +310,7 @@ int main(void)
 		wf._data2SND[15]=0x35;
 		wf._n_D2SND=12;
 		wf._estado_conexion=100;//Si no se define no arranca	//wf._estado_conexion=1;					//Arranco en WiFi Desconectado
-		wf._automatizacion=WF_CONNECT_TCP;//wf._automatizacion=WF_SEND;
+		wf._automatizacion=WF_CONNECT_TCP;//wf._automatizacion=WF_SEND;*/
 		wf._DBG_EN=1;
 		//wf._send_data=1;
 		// ----------- INICIO - Seteo de módulo Ethernet W5100 ----------- //
@@ -366,8 +366,8 @@ int main(void)
 
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_1, 0);
   ITM0_Write("\r\n INICIO OK\r\n",strlen("\r\n INICIO OK\r\n"));
-     ESP8266_HW_Reset();	//WRNNG Hardcoded	  //Reseteo el modulo desde el pin de RESET
-     if (wf._DBG_EN) ITM0_Write("\r\n RESET ESP8266 \r\n",strlen("\r\n RESET ESP8266 \r\n"));
+     //240103 ESP8266_HW_Reset();	//WRNNG Hardcoded	  //Reseteo el modulo desde el pin de RESET
+     //240103 if (wf._DBG_EN) ITM0_Write("\r\n RESET ESP8266 \r\n",strlen("\r\n RESET ESP8266 \r\n"));
      //HAL_TIM_Base_Start(&htim6); //Timer como base de tiempo
      HAL_UART_Receive_IT(&huart1,(uint8_t *)UART_RX_byte,1);
      HAL_UART_Receive_IT(&huart2,(uint8_t *)UART2_RX_byte,1);
@@ -388,7 +388,7 @@ int main(void)
    ETH.TX[2]= 1;
    ETH.TX[3]= 0;
 
-     if(ESP8266_HW_Init(&huart1)==1)
+    /*240103 if(ESP8266_HW_Init(&huart1)==1)
      {
    	  ESP_HW_Init=1;
    	  if (wf._DBG_EN) ITM0_Write("\r\n ESP HW Init OK\r\n",strlen("\r\n ESP HW Init OK\r\n"));
@@ -406,7 +406,7 @@ int main(void)
    		  ESP_HW_Init=0;
    		  if (wf._DBG_EN)  ITM0_Write("\r\n ESP HW Init Fail\r\n",strlen("\r\n ESP HW Init Fail\r\n"));
    	  }
-     }
+     }*/
 
      HAL_Delay(1000);
      LoRa_set_sndTIMER(&lr,5000); //Inicio el ciclo de envíos
@@ -430,18 +430,18 @@ int main(void)
 
 
 
-	  	  if (ESP_HW_Init==1)
+	  	 /*240103 if (ESP_HW_Init==1)
 	  	  {
 	  			if((WF_SND_FLAG==1)&&(wf._TCP_Local_Server_EN==0)&&(wf._estado_conexion>=609)&&(ETH.S0_data_available))
 	  			{	ETH.S0_data_available=0;
 	  				wf_snd_flag_ticks=0;
-	  				WF_SND_FLAG=0;
+	  				WF_SND_FLAG=0;*/
 	  				/*ModBUS_F03_Request(&mb_wf, 0 , 10);
 	  				ModBUS(&mb_wf);							// Create ModBUS info to be sent
 	  				CopiaVector(wf._data2SND,mb_wf._MBUS_2SND,mb_wf._n_MBUS_2SND,0,'A');
 	  				wf._n_D2SND=mb_wf._n_MBUS_2SND;*/
 
-	  				if( httpPOST(	ENDPOINT, SERVER_IP,PORT,
+	  				/*240103 if( httpPOST(	ENDPOINT, SERVER_IP,PORT,
 	  								ModBUS_F03_Read(&mb_eth,0),
 	  								ModBUS_F03_Read(&mb_eth,1),
 	  								ModBUS_F03_Read(&mb_eth,2),
@@ -470,10 +470,10 @@ int main(void)
 	  							}
 	  				}
 	  			}
-	  	  }
+	  	  }*/
 	  /**************[ FIN PIDO ENVIAR DATOS ]**************/
 
-	  		if ((FLAG_UART1==1)||(FLAG_TIMEOUT==1))  //Si recibí datos o me fui por TimeOUT
+	  	/*240103	if ((FLAG_UART1==1)||(FLAG_TIMEOUT==1))  //Si recibí datos o me fui por TimeOUT
 	  		{
 	  			if(FLAG_UART1==1)
 	  				{
@@ -497,12 +497,12 @@ int main(void)
 
 	  			if (ESP_HW_Init==1) //Si el módulo se inició correctamente
 	  				{
-	  					/*************** Copio y proceso info recibida ***************/
+	  					// *************** Copio y proceso info recibida *************** /
 	  					wf._n_orig=UART_RX_items;
 	  					CopiaVector(wf._uartRCVD,UART_RX_vect_hld,UART_RX_items,1,CMP_VECT);
 	  					resultado=AT_ESP8266_ND(&wf);
 
-	  					/*************** Si recibo datos y estan correctos me fijo que son ***************/
+	  					// *************** Si recibo datos y estan correctos me fijo que son *************** /
 
 	  					if ((wf._new_data_rcv==1)&&(wf._estado_rcv_data==99))
 	  					{
@@ -522,7 +522,7 @@ int main(void)
 	  						}
 	  					}
 
-	  		}
+	  		}*/
 // AGREGAR TIMER EN MS TICKS PARA HABILITAR ESTADO Y CUENTA TODOS EN EL STRUCT
 	  		if((FLAG_UART2 == 1)||(lr.tmr_dly_ON==1))  //Evento de dato recibido LoRA debo verificar que es
 	  		{
@@ -981,7 +981,7 @@ void SysTick_Handler(void)
 // ENVIO DATOS LoRa ---------------------------------------------------------------//
 // ENVIO DATOS WF ---------------------------------------------------------------//
 
-	if((wf._estado_conexion==609 || wf._estado_conexion==700)&&(wf._TCP_Local_Server_EN==0))  wf_snd_flag_ticks++;
+	//240103 if((wf._estado_conexion==609 || wf._estado_conexion==700)&&(wf._TCP_Local_Server_EN==0))  wf_snd_flag_ticks++;
 
 	if(wf_snd_flag_ticks>= 2000 && wf._ejecucion!=1 && wf._TCP_Local_Server_EN==0)		 	  WF_SND_FLAG=1;
 
@@ -1278,7 +1278,7 @@ if (ms_ticks==100)//(ms_ticks==250)//(ms_ticks==50)
   /* USER CODE END SysTick_IRQn 0 */
   HAL_IncTick();
   /* USER CODE BEGIN SysTick_IRQn 1 */
-	if(wf._estado_conexion==4)//if((wf._estado_conexion!=1)&&(wf._estado_conexion!=2)&&(resultado!=20)&&(resultado!=24)) //Solo cuento cuando no estahaciendo otra cosa
+/*240103	if(wf._estado_conexion==4)//if((wf._estado_conexion!=1)&&(wf._estado_conexion!=2)&&(resultado!=20)&&(resultado!=24)) //Solo cuento cuando no estahaciendo otra cosa
 	{
 		ticks++;
 	}
@@ -1321,7 +1321,7 @@ if(wf._ejecucion==1)
 	else
 	{
 		wf._ticks=0;
-	}
+	}*/
   /* USER CODE END SysTick_IRQn 1 */
 }
 void HAL_UART_ErrorCallback(UART_HandleTypeDef *ERRUART)

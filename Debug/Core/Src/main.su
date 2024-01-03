@@ -1,7 +1,7 @@
 ../Drivers/CMSIS/Include/core_cm4.h:1816:22:__NVIC_SetPriority	16	static
 ../Drivers/CMSIS/Include/core_cm4.h:2022:26:SysTick_Config	16	static
 ../Drivers/CMSIS/Include/core_cm4.h:2064:26:ITM_SendChar	16	static,ignoring_inline_asm
-../Core/Src/main.c:214:5:main	168	static
+../Core/Src/main.c:214:5:main	24	static
 ../Core/Src/main.c:590:6:SystemClock_Config	88	static
 ../Core/Src/main.c:636:13:MX_SPI1_Init	8	static
 ../Core/Src/main.c:674:13:MX_TIM2_Init	64	static
