@@ -74,9 +74,11 @@ char body[512];
 char ENDPOINT[]="/tepelco",
      SERVER_IP[]="192.168.0.91",
      PORT[]="8000";
+uint8_t decimal[17];
 
 
-uint8_t ETH_DBG_EN=0;
+//uint8_t ETH_DBG_EN=0;
+int ETH_DBG_EN=0;
 uint8_t WF_SND_FLAG=0;
 int wf_snd_flag_ticks=0;
 
@@ -196,7 +198,7 @@ static void MX_USART6_UART_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 /* USER CODE BEGIN PFP */
-	uint8_t ESP8266_HW_Init(UART_HandleTypeDef *);
+	//uint8_t ESP8266_HW_Init(UART_HandleTypeDef *);
 	void ESP8266_HW_Reset(void);
 	void Actualizar_RXdata(int );
 	void BorrarVect(void);
@@ -215,7 +217,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	//----------------------- ETHERNET W5100 Environment-------------------------//
-
+		ETH_DBG_EN=0;
 	//	GATEWAY ADDRESS
 		ETH.GAR[0]=192;
 		ETH.GAR[1]=168;
@@ -323,7 +325,24 @@ int main(void)
 
 		// ----------- FIN - Seteo de módulo Ethernet W5100 ----------- //
 
-
+		 //----------------------- WIFI ------------------------//
+			decimal[0]=1;
+			decimal[1]=1;
+			decimal[2]=1;
+			decimal[3]=0;
+			decimal[4]=1;
+			decimal[5]=1;
+			decimal[6]=1;
+			decimal[7]=1;
+			decimal[8]=1;
+			decimal[9]=1;
+			decimal[10]=1;
+			decimal[11]=1;
+			decimal[12]=1;
+			decimal[13]=1;
+			decimal[14]=1;
+			decimal[15]=1;
+			decimal[16]=1;
 	 //----------------------- WIFI ------------------------//
 
 	 //---------------------- ModBUS -----------------------//
@@ -371,7 +390,7 @@ int main(void)
      //HAL_TIM_Base_Start(&htim6); //Timer como base de tiempo
      HAL_UART_Receive_IT(&huart1,(uint8_t *)UART_RX_byte,1);
      HAL_UART_Receive_IT(&huart2,(uint8_t *)UART2_RX_byte,1);
-     if (ETH_DBG_EN)ITM0_Write("\r\n SET-UP W5100 \r\n",strlen("\r\n SET-UP W5100 \r\n"));
+     if (ETH_DBG_EN == 1)ITM0_Write("\r\n SET-UP W5100 \r\n",strlen("\r\n SET-UP W5100 \r\n"));
 
    	 ETH.operacion=SPI_WRITE;
    	 ETH.TX[1]= 0;
@@ -552,7 +571,8 @@ int main(void)
 		  				while(n<16)//while(n<11)
 		  					{
 			  					data[0]='\0';
-			  					itoa(ModBUS_F03_Read(&mb_eth,n),data,10);
+			  					//itoa(ModBUS_F03_Read(&mb_eth,n),data,10);
+			  					FTOA(ModBUS_F03_Read(&mb_eth,n),data,decimal[n]);
 								strncat(lr.txbuff,data,strlen(data));
 								strncat(lr.txbuff,";",1);
 								n++;
@@ -1075,7 +1095,7 @@ if (ms_ticks==100)//(ms_ticks==250)//(ms_ticks==50)
 			 break;
 			 case SOCK_ESTABLISHED :
 				 {
-					 if (ETH_DBG_EN)ITM0_Write("\r\nS0_SOCK_ESTABLISHED \r\n",strlen("\r\nS0_SOCK_ESTABLISHED \r\n"));
+					 if (ETH_DBG_EN==1) ITM0_Write("\r\nS0_SOCK_ESTABLISHED \r\n",strlen("\r\nS0_SOCK_ESTABLISHED \r\n"));
 					 ETH.ETH_WDG=0;
 
 					if (ETH.S0_ENserver == 1)  // Si el puerto Ethernet actúa como server (Recibe datos conexión mas pedido mbus
@@ -1146,7 +1166,7 @@ if (ms_ticks==100)//(ms_ticks==250)//(ms_ticks==50)
 							{}
 							mb_eth._w_answer=1;	// Waiting answer flag
 							MB_TOUT_ticks=0;	// restart counting
-							if (ETH_DBG_EN) ITM0_Write("\r\n SENT MBUS REQ \r\n",strlen("\r\n\r\n SENT MBUS REQ \r\n\r\n"));
+							if (ETH_DBG_EN==1) ITM0_Write("\r\n SENT MBUS REQ \r\n",strlen("\r\n\r\n SENT MBUS REQ \r\n\r\n"));
 						}
 						else
 						{
@@ -1172,7 +1192,7 @@ if (ms_ticks==100)//(ms_ticks==250)//(ms_ticks==50)
 										//CopiaVector(ETH.data, mb_eth._MBUS_2SND, mb_eth._n_MBUS_2SND, 0, 0);
 										CopiaVector(ETH.swap, mb_eth._MBUS_RCVD, mb_eth._n_MBUS_RCVD, 0, 0);
 										CopiaVector(mb_wf._Holding_Registers, mb_eth._Holding_Registers, 64, 0, 0);
-										if (ETH_DBG_EN) ITM0_Write("\r\n RCVD MBUS REQ \r\n",strlen("\r\n\r\n RCVD MBUS REQ \r\n\r\n"));
+										if (ETH_DBG_EN==1) ITM0_Write("\r\n RCVD MBUS REQ \r\n",strlen("\r\n\r\n RCVD MBUS REQ \r\n\r\n"));
 									}
 									else
 										{
@@ -1455,7 +1475,7 @@ void ESP8266_HW_Reset(void)
 	  ITM0_Write("\r\n ESP ResetT\r\n",strlen("\r\n ESP ResetT\r\n"));
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_8, GPIO_PIN_SET);		//Habilito módulo
 }
-uint8_t ESP8266_HW_Init(UART_HandleTypeDef *SerialPort) //Devuelve 1 si reinició OK, y 0 si no
+/*uint8_t ESP8266_HW_Init(UART_HandleTypeDef *SerialPort) //Devuelve 1 si reinició OK, y 0 si no
 {
 	  do{
 		  HAL_UART_Transmit(SerialPort, "AT+RESTORE\r\n",strlen("AT+RESTORE\r\n"),100);
@@ -1509,7 +1529,7 @@ uint8_t ESP8266_HW_Init(UART_HandleTypeDef *SerialPort) //Devuelve 1 si reinici�
 	  {
 		  return(0);
 	  }
-}
+}*/
 void BorrarVect(void)
 {
 	wf._uartRCVD[0]='\0';
