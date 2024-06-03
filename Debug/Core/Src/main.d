@@ -32,7 +32,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/STM32-IDE/STM32-Library/ModBUS/ModBUS_Chelo.h \
  C:/STM32-IDE/STM32-Library/STRING/STR_Chelo.h \
  C:/STM32-IDE/STM32-Library/STM32_ETH_W5100/ETH_W5100.h \
- C:/STM32-IDE/STM32-Library/HTTP/http.h \
  C:/STM32-IDE/STM32-Library/LoRa/RYLR896.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -68,5 +67,4 @@ C:/STM32-IDE/STM32-Library/ESP8266/ESP8266_Chelo.h:
 C:/STM32-IDE/STM32-Library/ModBUS/ModBUS_Chelo.h:
 C:/STM32-IDE/STM32-Library/STRING/STR_Chelo.h:
 C:/STM32-IDE/STM32-Library/STM32_ETH_W5100/ETH_W5100.h:
-C:/STM32-IDE/STM32-Library/HTTP/http.h:
 C:/STM32-IDE/STM32-Library/LoRa/RYLR896.h:
